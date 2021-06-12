@@ -8,41 +8,44 @@ router.get("/", (req, res) => {
   res.send("MSD Challenge");
 });
 
-router.get("/infoVendaCota", (req, res) => {
-  query("infoVendaCota");
+router.get("/infoVendaCota", async (req, res) => {
+  res.send(query("infoVendaCota"));
 });
-router.get("/realizadoXcotaFamilia", (req, res) => {
-  query("realizadoXcotaFamilia");
+router.get("/realizadoXcotaFamilia", async (req, res) => {
+  res.send(query("realizadoXcotaFamilia"));
 });
-router.get("/realizadoXcotaVendedor", (req, res) => {
-  query("realizadoXcotaVendedor");
+router.get("/realizadoXcotaVendedor", async (req, res) => {
+  res.send(query("realizadoXcotaVendedor"));
 });
-router.get("/realizadoXcotaVendedorMes", (req, res) => {
-  query("realizadoXcotaVendedorMes");
+router.get("/realizadoXcotaVendedorMes", async (req, res) => {
+  res.send(query("realizadoXcotaVendedorMes"));
 });
-router.get("/realizadoClientePeriodo", (req, res) => {
-  query("realizadoClientePeriodo");
+router.get("/realizadoClientePeriodo", async (req, res) => {
+  res.send(query("realizadoClientePeriodo"));
 });
-router.get("/qntVisitasUnidadeMes", (req, res) => {
-  query("qntVisitasUnidadeMes");
+router.get("/qntVisitasUnidadeMes", async (req, res) => {
+  res.send(query("qntVisitasUnidadeMes"));
 });
-router.get("/qntVisitasNaoConcluidasMes", (req, res) => {
-  query("qntVisitasNaoConcluidasMes");
+router.get("/qntVisitasNaoConcluidasMes", async (req, res) => {
+  res.send(query("qntVisitasNaoConcluidasMes"));
 });
-router.get("/qntVisitasMes", (req, res) => {
-  query("qntVisitasMes");
+router.get("/qntVisitasMes", async (req, res) => {
+  res.send(query("qntVisitasMes"));
 });
-router.get("/qntVisitasNaoConcluidasVendedor", (req, res) => {
-  query("qntVisitasNaoConcluidasVendedor");
+router.get("/qntVisitasNaoConcluidasVendedor", async (req, res) => {
+  res.send(query("qntVisitasNaoConcluidasVendedor"));
 });
-router.get("/infoPlanejamentoProxVisitasStatus", (req, res) => {
-  query("infoPlanejamentoProxVisitasStatus");
+router.get("/infoPlanejamentoProxVisitasStatus", async (req, res) => {
+  res.send(query("infoPlanejamentoProxVisitasStatus"));
 });
-router.get("/saberAtiviNaoRelacionadasComVisitaMesVendedor", (req, res) => {
-  query("saberAtiviNaoRelacionadasComVisitaMesVendedor");
-});
-router.get("/estoque", (req, res) => {
-  res.send((query("estoque")));
+router.get(
+  "/saberAtiviNaoRelacionadasComVisitaMesVendedor",
+  async (req, res) => {
+    res.send(query("saberAtiviNaoRelacionadasComVisitaMesVendedor"));
+  }
+);
+router.get("/estoque", async (req, res) => {
+  res.send(query("estoque"));
 });
 
 module.exports = router;

@@ -1,32 +1,37 @@
+const sql = require("mssql");
 const queries = require("./queries.json");
-const mysql = require("mysql");
+const dotenv = require("dotenv").config();
 const keys = Object.keys(queries);
 const values = Object.values(queries);
 
-const connection = mysql.createPool({
-  host: "187.109.40.139",
+// create a config to mssql
+const sqlConfig = {
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  server: process.env.DB_SERVER,
+  options: {
+    trustedconnection: true,
+    enableArithAort: true,
+    instancename: process.env.DB_SERVER,
+    trustServerCertificate: true,
+  },
   port: 1433,
-  user: "rdaccess",
-  password: "HackaFiapMSD",
-  database: "DB_Hackaton",
-});
+};
 
-
+// get info from request, and send a result query
 const query = async (route) => {
-  keys.map((key, index) => {
+  keys.map(async (key, index) => {
     if (key == route) {
       try {
-        connection.query(values[index], (err, result, fields) => {
-          console.log(fields);
-          console.log(`Result: ${result}`);
-          return result;
-        });
+        await sql.connect(sqlConfig);
+        const result = await sql.query(values[index]);
       } catch (err) {
+        console.log(err);
         return err;
       }
     }
   });
 };
 
-
-module.exports = query;
+module.exports=query;
