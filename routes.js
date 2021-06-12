@@ -9,43 +9,57 @@ router.get("/", (req, res) => {
 });
 
 router.get("/infoVendaCota", async (req, res) => {
-  res.send(query("infoVendaCota"));
+  const response = await query("infoVendaCota");
+  res.json(response);
 });
 router.get("/realizadoXcotaFamilia", async (req, res) => {
-  res.send(query("realizadoXcotaFamilia"));
+  const response = await query("realizadoXcotaFamilia");
+  res.json(response);
 });
 router.get("/realizadoXcotaVendedor", async (req, res) => {
-  res.send(query("realizadoXcotaVendedor"));
+  const response = await query("realizadoXcotaVendedor");
+  res.json(response);
 });
 router.get("/realizadoXcotaVendedorMes", async (req, res) => {
-  res.send(query("realizadoXcotaVendedorMes"));
+  const response = await query("realizadoXcotaVendedorMes");
+  res.json(response);
 });
 router.get("/realizadoClientePeriodo", async (req, res) => {
-  res.send(query("realizadoClientePeriodo"));
+  const response = await query("realizadoClientePeriodo");
+  res.json(response);
 });
 router.get("/qntVisitasUnidadeMes", async (req, res) => {
-  res.send(query("qntVisitasUnidadeMes"));
+  const response = await query("qntVisitasUnidadeMes");
+  res.json(response);
 });
 router.get("/qntVisitasNaoConcluidasMes", async (req, res) => {
-  res.send(query("qntVisitasNaoConcluidasMes"));
+  const response = await query("qntVisitasNaoConcluidasMes");
+  res.json(response);
 });
 router.get("/qntVisitasMes", async (req, res) => {
-  res.send(query("qntVisitasMes"));
+  const response = await query("qntVisitasMes");
+  res.json(response);
 });
 router.get("/qntVisitasNaoConcluidasVendedor", async (req, res) => {
-  res.send(query("qntVisitasNaoConcluidasVendedor"));
+  const response = await query("qntVisitasNaoConcluidasVendedor");
+  res.json(response);
 });
 router.get("/infoPlanejamentoProxVisitasStatus", async (req, res) => {
-  res.send(query("infoPlanejamentoProxVisitasStatus"));
+  const response = await query("infoPlanejamentoProxVisitasStatus");
+  res.json(response);
 });
 router.get(
   "/saberAtiviNaoRelacionadasComVisitaMesVendedor",
   async (req, res) => {
-    res.send(query("saberAtiviNaoRelacionadasComVisitaMesVendedor"));
+    const response = await query(
+      "saberAtiviNaoRelacionadasComVisitaMesVendedor"
+    );
+    res.json(response);
   }
 );
 router.get("/estoque", async (req, res) => {
-  res.send(query("estoque"));
+  const response = await query("estoque");
+  res.json(response);
 });
 
 module.exports = router;
