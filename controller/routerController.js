@@ -6,7 +6,7 @@ const { dbConfig } = require("./dbConfig");
 const query = async (route) => {
   if (queries[route]) {
     try {
-      const pool = await sql.connect(dbConfig);
+      const pool = await new sql.ConnectionPool(dbConfig);
       const req = await pool.request().query(queries[route]);
       return req.recordsets;
     } catch (err) {
