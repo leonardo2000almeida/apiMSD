@@ -1,13 +1,13 @@
 const sql = require("mssql");
 const queries = require("./queries.json");
-const sqlConfig = require("./dbConfig");
+const { poolPromise, sqlConfig } = require("./dbConfig");
 
 // get info from request, and send a result query
 const query = async (route) => {
   if (queries[route]) {
     try {
-      await sql.connect(sqlConfig);
-      const result = sql.query(queries[route]);
+      const pool = await poolPromise;
+      const result = await pool.request().query(queries[route]);
       return result;
     } catch (err) {
       console.log(err);
