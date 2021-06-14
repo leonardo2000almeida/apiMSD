@@ -15,7 +15,16 @@ const sqlConfig = {
   },
   port: 1433,
 };
-const poolPromise = new sql.ConnectionPool(sqlConfig)
+const poolPromise = new sql.ConnectionPool({
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  server: process.env.DB_SERVER,
+  port: 1433,
+  options: {
+    trustedConnection: true,
+    instanceName: process.env.DB_SERVER
+  }
+})
   .connect()
   .then((pool) => {
     console.log("Connected to MSSQL");
