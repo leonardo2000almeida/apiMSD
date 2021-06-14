@@ -2,14 +2,17 @@ const dotenv = require("dotenv").config();
 const sql = require("mssql");
 
 const poolPromise = new sql.ConnectionPool({
-  user: 'rdaccess',
-  password: 'HackaFiapMSD',
-  server: '187.109.40.139',
-  port: 1433,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  server: process.env.DB_SERVER,
   options: {
-    trustedConnection: true,
-    instanceName: process.env.DB_SERVER
-  }
+    trustedconnection: true,
+    enableArithAort: true,
+    instancename: process.env.DB_SERVER,
+    trustServerCertificate: true,
+  },
+  port: 1433,
 })
   .connect()
   .then((pool) => {
@@ -20,5 +23,6 @@ const poolPromise = new sql.ConnectionPool({
 
 // create a config to mssql
 module.exports = {
+  sqlConfig,
   poolPromise,
 };
