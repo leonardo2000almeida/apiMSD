@@ -23,6 +23,5 @@ const poolPromise = new sql.ConnectionPool({
 
 // create a config to mssql
 module.exports = {
-  sqlConfig,
   poolPromise,
 };
