@@ -1,5 +1,5 @@
 const queries = require("./queries.json");
-const { poolPromise, sqlConfig } = require("./dbConfig");
+const { poolPromise } = require("./dbConfig");
 
 // get info from request, and send a result query
 const query = async (route) => {

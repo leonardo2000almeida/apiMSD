@@ -59,7 +59,7 @@ router.get(
 );
 
 router.get("/estoque", async (req, res) => {
-  const response = await query("estoque")
+  const response = await query("estoque");
   res.json(response);
 });
 
