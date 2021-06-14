@@ -6,8 +6,8 @@ const query = async (route) => {
   if (queries[route]) {
     try {
       const pool = await poolPromise;
-      const result = await pool.request().query(queries[route]);
-      return result;
+      const req = await pool.request().query(queries[route]);
+      return req.recordsets
     } catch (err) {
       console.log(err);
       return err;
