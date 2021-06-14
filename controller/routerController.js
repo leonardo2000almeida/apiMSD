@@ -1,4 +1,3 @@
-const sql = require("mssql");
 const queries = require("./queries.json");
 const { poolPromise, sqlConfig } = require("./dbConfig");
 
